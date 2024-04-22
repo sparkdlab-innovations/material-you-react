@@ -42,14 +42,20 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "jest --config jest.config.json",
-    "build": "npm build:esm && npm build:cjs",
+    "test": "jest --config jest.config.json --passWithNoTests",
+    "build": "npm run build:esm && npm run build:cjs",
     "build:watch": "tsc -p tsconfig.json --watch",
-    "build:esm": "tsc -p tsconfig.json",
-    "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc -p tsconfig.json && copyfiles -u 1 \"lib/**/*.module.css\" dist/esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs && copyfiles -u 1 \"lib/**/*.module.css\" dist/cjs",
     "style": "prettier --write \"{lib,tests,example}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "npm run test && npm run build",
     "prepublishOnly": "npm run style && npm run lint && npm run test && npm run build"
@@ -58,11 +64,14 @@
     "react": ">=18"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.7",
     "@testing-library/react": "^14.1.2",
+    "@types/babel__core": "^7.20.5",
     "@types/jest": "^29.5.11",
     "@types/react": "^18.2.46",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
@@ -72,9 +81,8 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "typescript-plugin-css-modules": "^5.1.0"
   }
 }
