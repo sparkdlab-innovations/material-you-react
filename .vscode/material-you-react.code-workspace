@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "path": "../examples/component-demo-next"
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": [
+      "component-demo-next",
+      "component-demo-react"
+    ],
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
+    },
+    "emeraldwalk.runonsave": {
+      "autoClearConsole": true,
+      "shell": "bash",
+      "commands": [
+        {
+          "match": "\\.tsx?$",
+          "notMatch": "src",
+          "isAsync": true,
+          "cmd": "yarn tsc -p tsconfig.json"
+        },
+        {
+          "match": "\\.tsx?$",
+          "notMatch": "src",
+          "isAsync": true,
+          "cmd": "yarn tsc -p tsconfig.json --module commonjs --outDir dist/cjs"
+        },
+        {
+          "match": "\\.module\\.css$",
+          "notMatch": "src",
+          "isAsync": true,
+          "cmd": "yarn copyfiles -u 1 \"lib/**/*.module.css\" dist/esm"
+        },
+        {
+          "match": "\\.module\\.css$",
+          "notMatch": "src",
+          "isAsync": true,
+          "cmd": "yarn copyfiles -u 1 \"lib/**/*.module.css\" dist/cjs"
+        }
+      ]
+    }
+  }
+}

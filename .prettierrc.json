@@ -11,7 +11,7 @@
   "jsxBracketSameLine": false,
   "quoteProps": "as-needed",
   "useTabs": false,
-  "endOfLine": "lf",
+  "endOfLine": "crlf",
   "proseWrap": "preserve",
   "htmlWhitespaceSensitivity": "css",
   "singleAttributePerLine": true

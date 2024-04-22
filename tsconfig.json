@@ -1,10 +1,11 @@
 {
   "include": [
-    "lib"
+    "./lib"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "build"
   ],
   "compilerOptions": {
     "module": "esnext",
@@ -12,6 +13,11 @@
       "dom",
       "dom.iterable",
       "esnext"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
     ],
     "importHelpers": true,
     "declaration": true,
@@ -30,14 +36,9 @@
     "forceConsistentCasingInFileNames": true,
     "target": "ESNext",
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "paths": {
-      "@/*": [
-        "./lib/*"
-      ]
-    }
   }
 }

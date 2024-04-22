@@ -3,53 +3,53 @@ root = true
 [*]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.ts]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.js]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.jsx]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.tsx]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.json]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.html]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.css]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.scss]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.less]
 indent_style = space
 indent_size = 2
-end_of_line = lf
+end_of_line = crlf
 
 [*.md]
 trim_trailing_whitespace = false
-end_of_line = lf
+end_of_line = crlf
