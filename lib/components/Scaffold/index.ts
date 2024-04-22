@@ -18,6 +18,4 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export * from './Navigation';
-export * from './Scaffold';
-export * from './ThemeProvider';
+export { default as Scaffold } from './Scaffold';
