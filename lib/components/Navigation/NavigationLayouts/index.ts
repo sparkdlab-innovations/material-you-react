@@ -19,3 +19,4 @@
  */
 
 export { default as NavigationDrawer } from './NavigationDrawer';
+export { default as NavigationRail } from './NavigationRail';
