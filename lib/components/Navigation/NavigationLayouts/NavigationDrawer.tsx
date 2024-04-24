@@ -21,11 +21,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import isValidChildComponent from '../../utils/isValidChildComponent';
-import NavigationContext from './NavigationContext';
-import { NavigationDividerItem, NavigationHeaderItem } from './NavigationItems';
-import NavigationLinkItem from './NavigationItems/NavigationLinkItem';
-import styles from './navigation.module.css';
+import isValidChildComponent from '../../../utils/isValidChildComponent';
+import NavigationContext from '../NavigationContext';
+import { NavigationDividerItem, NavigationHeaderItem, NavigationLinkItem } from '../NavigationItems';
+import styles from '../navigation.module.css';
 
 function NavigationDrawer({
   children,

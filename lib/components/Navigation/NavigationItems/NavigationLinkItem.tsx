@@ -86,21 +86,33 @@ function NavigationLinkItem({
     return icon;
   }, [icon, selectedIcon, disabledIcon, isSelected, isDisabled]);
 
+  const isDrawerItem = useMemo(() => {
+    return navigationContext.navigationContainerType === 'drawer';
+  }, [navigationContext]);
+
+  const isRailItem = useMemo(() => {
+    return navigationContext.navigationContainerType === 'rail';
+  }, [navigationContext]);
+
+  const isBarItem = useMemo(() => {
+    return navigationContext.navigationContainerType === 'bar';
+  }, [navigationContext]);
+
   const isShown = useMemo(() => {
-    if (showInBar && navigationContext.navigationContainerType === 'bar') {
+    if (showInBar && isBarItem) {
       return true;
     }
 
-    if (showInRail && navigationContext.navigationContainerType === 'rail') {
+    if (showInRail && isRailItem) {
       return true;
     }
 
-    if (showInDrawer && navigationContext.navigationContainerType === 'drawer') {
+    if (showInDrawer && isDrawerItem) {
       return true;
     }
 
     return false;
-  }, [navigationContext, showInBar, showInRail, showInDrawer]);
+  }, [showInBar, showInRail, showInDrawer, isBarItem, isRailItem, isDrawerItem]);
 
   const longPressAttributes = useLongPress(
     () => {
@@ -149,31 +161,40 @@ function NavigationLinkItem({
   }
 
   return (
-    <div
-      key={`navigation-item-${index}-link-${text.replaceAll(' ', '-')}`}
-      className={`${styles.navigationLinkItem} ${isSelected ? styles.navigationItemActive : ''}`}
-      ref={buttonRef}
-      {...longPressAttributes}
-      onMouseOver={onHover}
-    >
-      <div className={styles.navigationLinkItemContent}>
-        <div className={styles.navigationItemPrimaryContent}>
-          <span className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}>
-            {currentIcon}
-          </span>
+    <>
+      <div
+        key={`navigation-item-${index}-link-${text.replaceAll(' ', '-')}`}
+        className={`${styles.navigationLinkItem} ${isSelected ? styles.navigationItemActive : ''} ${isRailItem ? styles.railItem : ''}`}
+        ref={buttonRef}
+        {...longPressAttributes}
+        onMouseOver={onHover}
+      >
+        <div className={styles.navigationLinkItemContent}>
+          <div className={styles.navigationItemPrimaryContent}>
+            <span className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}>
+              {currentIcon}
+            </span>
+            {
+              // TODO: use typography component
+            }
+            <span className={styles.navigationLinkItemLabel}>{text}</span>
+          </div>
           {
             // TODO: use typography component
           }
-          <span className={styles.navigationLinkItemLabel}>{text}</span>
+          <span className={styles.navigationLinkItemBadge}>{badge}</span>
         </div>
-        {
-          // TODO: use typography component
-        }
-        <span className={styles.navigationLinkItemBadge}>{badge}</span>
+        <div className={styles.navigationLinkItemRipple}></div>
+        <div className={styles.navigationLinkItemBackdrop}></div>
       </div>
-      <div className={styles.navigationLinkItemRipple}></div>
-      <div className={styles.navigationLinkItemBackdrop}></div>
-    </div>
+      {isRailItem && (
+        <div className={styles.navigationRailLinkItemLabelContainer}>
+          <span className={`${styles.navigationRailLinkItemLabel} ${isSelected ? styles.navigationItemActive : ''}`}>
+            {text}
+          </span>
+        </div>
+      )}
+    </>
   );
 }
 
