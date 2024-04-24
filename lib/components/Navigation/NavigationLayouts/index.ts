@@ -18,6 +18,4 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export * from './NavigationItems';
-export * from './NavigationLayouts';
-
+export { default as NavigationDrawer } from './NavigationDrawer';
