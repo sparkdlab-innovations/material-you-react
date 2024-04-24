@@ -1,0 +1,55 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.ts]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.js]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.jsx]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.tsx]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.json]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.html]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.css]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.scss]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.less]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.md]
+trim_trailing_whitespace = false
+end_of_line = lf
