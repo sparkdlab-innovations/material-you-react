@@ -50,9 +50,7 @@
 
 /* ----- NavigationRail ----- */
 .navigationRailComponentRoot {
-  /* TODO: Temporary */
-  /* background-color: var(--md-sys-color-surface); */
-  background-color: var(--md-sys-color-surface-container-low);
+  background-color: var(--md-sys-color-surface);
   width: 80px;
   height: 100vh;
   overflow-x: hidden;
@@ -149,6 +147,7 @@
 .expandedNavigationRail .navigationRailContent {
   transition: min-height 1s ease-in;
   min-height: 0;
+  align-items: flex-start;
 }
 
 /* ----- NavigationLinkItem ----- */
