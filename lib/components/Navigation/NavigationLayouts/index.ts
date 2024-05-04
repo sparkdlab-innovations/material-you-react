@@ -18,5 +18,6 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+export { default as NavigationBar } from './NavigationBar';
 export { default as NavigationDrawer } from './NavigationDrawer';
 export { default as NavigationRail } from './NavigationRail';

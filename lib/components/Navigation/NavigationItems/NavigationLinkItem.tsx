@@ -160,6 +160,27 @@ function NavigationLinkItem({
     return <></>;
   }
 
+  if (isBarItem) {
+    return (
+      <div
+        key={`navigation-item-${index}-link-${text.replaceAll(' ', '-')}`}
+        className={`${styles.navigationLinkItem} ${styles.barItem} ${isSelected ? styles.navigationItemActive : ''}`}
+        ref={buttonRef}
+        {...longPressAttributes}
+        onMouseOver={onHover}
+      >
+        <div className={styles.navigationBarItemContent}>
+          <span className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}>
+            {currentIcon}
+          </span>
+          <div className={styles.navigationBarItemRipple}></div>
+          <div className={styles.navigationBarItemBackdrop}></div>
+        </div>
+        <div className={styles.navigationLinkItemLabel}>{text}</div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div
