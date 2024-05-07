@@ -20,7 +20,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import isValidChildComponent from '../../../utils/isValidChildComponent';
 import NavigationContext from '../NavigationContext';
 import { NavigationDividerItem, NavigationHeaderItem, NavigationLinkItem } from '../NavigationItems';
@@ -35,10 +35,27 @@ function NavigationBar({ children }: { children: React.ReactNode }): React.JSX.E
     setActiveRoutePath(path);
   }
 
+  const visibleChildren = useMemo(() => {
+    return React.Children.map<boolean, React.ReactNode>(children, (child) => {
+      if (React.isValidElement(child) && child.type === NavigationLinkItem && child.props.showInBar) {
+        return true;
+      }
+      return false;
+    })?.filter((child) => child === true).length;
+  }, [children]);
+
   if (!isValidChildComponent(children, [NavigationLinkItem, NavigationDividerItem, NavigationHeaderItem])) {
     throw new Error(
       'Children of NavigationBar must be of type NavigationLinkItem, NavigationHeaderItem, or NavigationDividerItem only.',
     );
+  }
+
+  if (!visibleChildren || visibleChildren < 3) {
+    throw new Error('At least 3 NavigationLinkItem(s) must be visible in the NavigationBar.');
+  }
+
+  if (visibleChildren > 5) {
+    throw new Error('At most 5 NavigationLinkItem(s) can be visible in the NavigationBar.');
   }
 
   return (
