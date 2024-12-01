@@ -16,11 +16,12 @@
     "prettier"
   ],
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-non-null-assertion": "warn",
     "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
     "prettier/prettier": "off"
   },
   "settings": {
@@ -33,6 +34,12 @@
     "node": true
   },
   "globals": {
-    "JSX": true
-  }
+    "JSX": "writable"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    "examples/"
+  ]
 }

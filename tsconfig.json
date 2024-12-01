@@ -9,6 +9,9 @@
   ],
   "compilerOptions": {
     "module": "esnext",
+    "rootDir": "./lib", // "lib" for libraries, not for apps
+    "outDir": "./dist/esm", // "dist" for libraries, not for apps
+    "target": "ESNext", // "ESNext" for libraries, not for apps
     "lib": [
       "dom",
       "dom.iterable",
@@ -16,29 +19,33 @@
     ],
     "plugins": [
       {
+        "name": "react"
+      },
+      {
         "name": "typescript-plugin-css-modules"
       }
     ],
+    "paths": {
+      "@/*": [
+        "./lib/*"
+      ]
+    },
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": false, // true for libraries, false for apps
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "incremental": true,
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "./lib",
-    "outDir": "./dist/esm",
-    "strict": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "target": "ESNext",
-    "allowJs": true,
-    "noEmit": false,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
-  }
+  },
 }

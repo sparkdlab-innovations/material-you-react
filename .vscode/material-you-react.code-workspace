@@ -13,12 +13,12 @@
       "component-demo-react"
     ],
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit",
-      "source.fixAll": "explicit"
+      "source.organizeImports": "always",
+      "source.fixAll": "always"
     },
     "emeraldwalk.runonsave": {
       "autoClearConsole": true,
-      "shell": "bash",
+      "shell": "zsh",
       "commands": [
         {
           "match": "\\.tsx?$",
@@ -45,6 +45,7 @@
           "cmd": "yarn copyfiles -u 1 \"lib/**/*.module.css\" dist/cjs"
         }
       ]
-    }
+    },
+    "typescript.tsdk": "material-you-react/node_modules/typescript/lib"
   }
 }
