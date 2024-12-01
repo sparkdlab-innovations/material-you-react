@@ -67,9 +67,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   }, [theme]);
 
   return (
-    <div id='theme-provider-root'>
+    <>
       <style>{cssBaseline}</style>
       {children}
-    </div>
+    </>
   );
 }

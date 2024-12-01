@@ -94,16 +94,21 @@ export default class MaterialTheme {
 
       * {
         box-sizing: border-box;
+
         padding: 0;
         margin: 0;
       }
 
       html,
       body {
-        max-width: 100vw;
-        overflow-x: hidden;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+
         background-color: var(--md-sys-color-background);
         color: var(--md-sys-color-on-background);
+
+        font-family: Roboto, sans-serif;
       }
 
       a {
