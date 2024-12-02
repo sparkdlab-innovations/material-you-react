@@ -68,7 +68,9 @@ function NavigationLinkItem({
 }): React.JSX.Element {
   const navigationContext = useContext(NavigationContext);
   if (!navigationContext) {
-    throw new Error('NavigationLinkItem must be used within a NavigationDrawer, NavigationRail, or NavigationBar');
+    throw new Error(
+      'NavigationLinkItem must be used within a NavigationDrawer, NavigationRail, or NavigationBar',
+    );
   }
 
   const buttonRef = useRef<HTMLDivElement>(null);
@@ -112,7 +114,14 @@ function NavigationLinkItem({
     }
 
     return false;
-  }, [showInBar, showInRail, showInDrawer, isBarItem, isRailItem, isDrawerItem]);
+  }, [
+    showInBar,
+    showInRail,
+    showInDrawer,
+    isBarItem,
+    isRailItem,
+    isDrawerItem,
+  ]);
 
   const longPressAttributes = useLongPress(
     () => {
@@ -129,7 +138,9 @@ function NavigationLinkItem({
     {
       onStart: () => {
         if (isDisabled) return;
-        buttonRef.current?.querySelector(`div.${styles.navigationLinkItemRipple}`)?.classList.add(styles.rippleActive);
+        buttonRef.current
+          ?.querySelector(`div.${styles.navigationLinkItemRipple}`)
+          ?.classList.add(styles.rippleActive);
       },
       onFinish: () => {
         if (isDisabled) return;
@@ -141,7 +152,10 @@ function NavigationLinkItem({
         if (isDisabled) return;
         buttonRef.current
           ?.querySelector(`div.${styles.navigationLinkItemRipple}`)
-          ?.classList.replace(styles.rippleActive, styles.rippleActiveDisappear);
+          ?.classList.replace(
+            styles.rippleActive,
+            styles.rippleActiveDisappear,
+          );
         setTimeout(() => {
           buttonRef.current
             ?.querySelector(`div.${styles.navigationLinkItemRipple}`)
@@ -170,7 +184,9 @@ function NavigationLinkItem({
         onMouseOver={onHover}
       >
         <div className={styles.navigationBarItemContent}>
-          <span className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}>
+          <span
+            className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}
+          >
             {currentIcon}
           </span>
           <div className={styles.navigationBarItemRipple}></div>
@@ -192,7 +208,9 @@ function NavigationLinkItem({
       >
         <div className={styles.navigationLinkItemContent}>
           <div className={styles.navigationItemPrimaryContent}>
-            <span className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}>
+            <span
+              className={`material-symbols-outlined icon-filled ${styles.navigationLinkItemIcon}`}
+            >
               {currentIcon}
             </span>
             {
@@ -210,7 +228,9 @@ function NavigationLinkItem({
       </div>
       {isRailItem && (
         <div className={styles.navigationRailLinkItemLabelContainer}>
-          <span className={`${styles.navigationRailLinkItemLabel} ${isSelected ? styles.navigationItemActive : ''}`}>
+          <span
+            className={`${styles.navigationRailLinkItemLabel} ${isSelected ? styles.navigationItemActive : ''}`}
+          >
             {text}
           </span>
         </div>

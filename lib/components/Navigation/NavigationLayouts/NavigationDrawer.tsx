@@ -23,7 +23,11 @@
 import React, { useState } from 'react';
 import isValidChildComponent from '../../../utils/isValidChildComponent';
 import NavigationContext from '../NavigationContext';
-import { NavigationDividerItem, NavigationHeaderItem, NavigationLinkItem } from '../NavigationItems';
+import {
+  NavigationDividerItem,
+  NavigationHeaderItem,
+  NavigationLinkItem,
+} from '../NavigationItems';
 import styles from '../navigation.module.css';
 
 function NavigationDrawer({
@@ -43,7 +47,13 @@ function NavigationDrawer({
     setActiveRoutePath(path);
   }
 
-  if (!isValidChildComponent(children, [NavigationLinkItem, NavigationDividerItem, NavigationHeaderItem])) {
+  if (
+    !isValidChildComponent(children, [
+      NavigationLinkItem,
+      NavigationDividerItem,
+      NavigationHeaderItem,
+    ])
+  ) {
     throw new Error(
       'Children of NavigationDrawer must be of type NavigationLinkItem, NavigationHeaderItem, or NavigationDividerItem only.',
     );
@@ -62,7 +72,9 @@ function NavigationDrawer({
         id='navigation-drawer-root'
         className={`${styles.navigationDrawerComponentRoot} ${isModal ? styles.navigationModal : ''}`}
       >
-        {header && <div className={styles.navigationDrawerHeader}>{header}</div>}
+        {header && (
+          <div className={styles.navigationDrawerHeader}>{header}</div>
+        )}
         {children}
       </nav>
     </NavigationContext.Provider>

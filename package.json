@@ -56,7 +56,7 @@
     "build:watch": "tsc -p tsconfig.json --watch",
     "build:esm": "tsc -p tsconfig.json && copyfiles -u 1 \"lib/**/*.module.css\" dist/esm",
     "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs && copyfiles -u 1 \"lib/**/*.module.css\" dist/cjs",
-    "style": "prettier --write \"{lib,tests,example}/**/*.{js,jsx,ts,tsx}\"",
+    "style": "prettier --write \"{lib,tests,example}/**/*.{js,jsx,ts,tsx,css,less,scss}\"",
     "prepare": "npm run test && npm run build",
     "prepublishOnly": "npm run style && npm run lint && npm run test && npm run build"
   },

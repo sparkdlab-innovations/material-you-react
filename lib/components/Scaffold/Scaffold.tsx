@@ -79,7 +79,12 @@ type ScaffoldProps = (
  * />
  * ```
  */
-function Scaffold({ primaryActionPane, secondaryActionPane, appBar, contentPane }: ScaffoldProps): React.JSX.Element {
+function Scaffold({
+  primaryActionPane,
+  secondaryActionPane,
+  appBar,
+  contentPane,
+}: ScaffoldProps): React.JSX.Element {
   // TODO: option to hide navigation rail in medium layouts when in secondary pane, provided there is a back button in the app bar
   // TODO: option to use a drawer or bottom nav instead of navigation rail in medium layout
   // TODO: for compact layout, option to use a scroll collapsible app bar

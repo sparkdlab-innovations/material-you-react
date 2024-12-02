@@ -23,40 +23,58 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { MaterialPalette, MaterialTheme } from '../../utils/theme';
 
 /**
+ * Props for the ThemeProvider component.
+ *
+ * @typedef ThemeProviderProps
+ * @property {React.ReactNode} children - The child components to be wrapped by the ThemeProvider.
+ * @property {MaterialTheme} [theme] - An theme object to customize the Material UI theme. If not provided, a default theme will be used. Alternatively, you can use the `lightSourceColor` and `darkSourceColor` props to customize the theme.
+ * @property {string} [lightSourceColor] - The source color for the light palette. If not provided, a default color will be used. Alternatively, you can use the `theme` prop to customize the theme.
+ * @property {string} [darkSourceColor] - The source color for the dark palette. If not provided, a default color will be used. Alternatively, you can use the `theme` prop to customize the theme.
+ */
+type ThemeProviderProps = {
+  children: React.ReactNode;
+  theme?: MaterialTheme;
+  lightSourceColor?: string;
+  darkSourceColor?: string;
+};
+
+/**
  * A component that provides a theme for the application.
  *
  * @component
- * @param {Object} props - The component props.
- * @param {React.ReactNode} props.children - The child elements to be wrapped by the theme provider.
+ * @param {ThemeProviderProps} props - The component props.
  * @returns {React.JSX.Element} The rendered theme provider component.
  */
-export default function ThemeProvider({ children }: { children: React.ReactNode }): React.JSX.Element {
+export default function ThemeProvider({
+  children,
+  theme,
+  lightSourceColor,
+  darkSourceColor,
+}: ThemeProviderProps): React.JSX.Element {
   const [cssBaseline, setCssBaseline] = useState<string>('');
 
-  // TODO: Add support for custom themes.
-  // TODO: Allow users to pass in a custom theme object.
-  // TODO: Allow users to pass in custom css classes.
-  // TODO: Ensure css code is sanitized.
+  // TODO: Allow users to pass in custom css classes, ensure css code is sanitized.
 
-  const theme = useMemo(
+  const _theme = useMemo(
     () =>
+      theme ??
       new MaterialTheme({
         lightPalette: MaterialPalette.fromSourceColor({
-          sourceColorHex: '#3f0aa8',
+          sourceColorHex: lightSourceColor ?? '#3f0aa8',
           isDark: false,
           contrastLevel: 0,
         }),
         darkPalette: MaterialPalette.fromSourceColor({
-          sourceColorHex: '#161b61',
+          sourceColorHex: darkSourceColor ?? '#161b61',
           isDark: true,
           contrastLevel: 0,
         }),
       }),
-    [],
+    [theme, lightSourceColor, darkSourceColor],
   );
 
   useEffect(() => {
-    theme
+    _theme
       .getCssBaseline()
       .then((css) => {
         setCssBaseline(css);
@@ -64,7 +82,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
       .catch((error) => {
         console.error('Failed to load css baseline:', error);
       });
-  }, [theme]);
+  }, [_theme]);
 
   return (
     <>

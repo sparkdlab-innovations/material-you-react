@@ -204,7 +204,9 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  transition: all 0.2s ease-in-out, height 0s;
+  transition:
+    all 0.2s ease-in-out,
+    height 0s;
 }
 
 .navigationLinkItemContent {

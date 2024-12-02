@@ -458,7 +458,9 @@ export default class MaterialPalette {
    *
    * @returns A generated MaterialPalette
    */
-  public static fromSourceColor(options: DynamicSchemeOptions): MaterialPalette {
+  public static fromSourceColor(
+    options: DynamicSchemeOptions,
+  ): MaterialPalette {
     // TODO: Add check for options (non-TS support)
     const scheme = new SchemeTonalSpot(
       Hct.fromInt(argbFromHex(options.sourceColorHex)),

@@ -29,6 +29,8 @@ export interface NavigationContextType {
 }
 
 // Create the navigation context
-const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
+const NavigationContext = createContext<NavigationContextType | undefined>(
+  undefined,
+);
 
 export default NavigationContext;

@@ -27,7 +27,9 @@ import styles from '../navigation.module.css';
 function NavigationDividerItem(): React.JSX.Element {
   const navigationContext = useContext(NavigationContext);
   if (!navigationContext) {
-    throw new Error('NavigationDividerItem must be used within a NavigationDrawer, NavigationRail, or NavigationBar');
+    throw new Error(
+      'NavigationDividerItem must be used within a NavigationDrawer, NavigationRail, or NavigationBar',
+    );
   }
 
   if (navigationContext.navigationContainerType !== 'drawer') {
