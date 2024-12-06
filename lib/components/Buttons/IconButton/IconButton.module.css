@@ -18,5 +18,14 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export { default as IconButton } from './IconButton';
-export { default as StandardButton } from './StandardButton';
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  & .icon {
+    align-self: center;
+    font-size: 24px;
+  }
+}
