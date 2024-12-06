@@ -18,9 +18,4 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export * from './Buttons';
-export * from './Interactions';
-export * from './Navigation';
-export * from './Scaffold';
-export * from './ThemeProvider';
-
+export { default as StandardButton } from './StandardButton';
