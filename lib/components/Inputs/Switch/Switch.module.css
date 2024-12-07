@@ -1,0 +1,118 @@
+.root {
+  height: 32px;
+  width: 52px;
+  border-radius: 32px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  cursor: pointer;
+
+  & div,
+  & span {
+    transition: all 0.2s ease-in-out;
+  }
+
+  & .background {
+    grid-area: 1/1;
+
+    height: 32px;
+    width: 52px;
+    border-radius: 32px;
+
+    background-color: var(--md-sys-color-surface-container-highest);
+
+    border: 2px solid var(--md-sys-color-outline);
+    box-sizing: border-box;
+  }
+
+  &.active .background {
+    background-color: var(--md-sys-color-primary);
+    border: none;
+  }
+
+  & .foreground {
+    grid-area: 1/1;
+
+    display: flex;
+    justify-self: start;
+    align-self: center;
+
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    margin: 0px 8px;
+
+    background-color: var(--md-sys-color-outline);
+  }
+
+  &.hasIcon .foreground {
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    margin: 0px 4px;
+  }
+
+  &.active .foreground {
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    margin: 0px 4px;
+
+    transform: translateX(20px) rotateZ(360deg);
+
+    background-color: var(--md-sys-color-on-primary);
+  }
+
+  &.pressed .foreground,
+  &.active.pressed .foreground {
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+    margin: 0px 2px;
+
+    transition:
+      height 0.1s,
+      width 0.1s,
+      margin 0.1s;
+  }
+
+  & .icon {
+    font-size: 16px;
+    align-self: center;
+    margin: auto;
+    color: var(--md-sys-color-surface-container-highest);
+  }
+
+  &.active .icon {
+    color: var(--md-sys-color-on-primary-container);
+  }
+
+  &.disabled .background {
+    background-color: var(--md-sys-color-surface-container-highest);
+    border: 2px solid var(--md-sys-color-on-surface);
+    opacity: 0.12;
+  }
+  &.active.disabled .background {
+    background-color: var(--md-sys-color-on-surface);
+    border: none;
+  }
+
+  &.disabled .foreground {
+    background-color: var(--md-sys-color-on-surface);
+    opacity: 0.38;
+  }
+  &.active.disabled .foreground {
+    background-color: var(--md-sys-color-surface);
+    opacity: 1;
+  }
+
+  &.disabled .icon {
+    color: var(--md-sys-color-surface-container-highest);
+  }
+  &.active.disabled .icon {
+    color: var(--md-sys-color-on-surface);
+    opacity: 0.38;
+  }
+}
