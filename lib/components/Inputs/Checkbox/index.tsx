@@ -21,9 +21,9 @@
 'use client';
 
 import { HtmlHTMLAttributes } from 'react';
-import styles from './RadioButton.module.css';
+import styles from './Checkbox.module.css';
 
-export default function RadioButton({
+export default function Checkbox({
   toggleState,
   onToggle,
   isDisabled,
