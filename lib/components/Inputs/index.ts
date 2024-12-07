@@ -18,10 +18,6 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export * from './Buttons';
-export * from './Inputs';
-export * from './Interactions';
-export * from './Navigation';
-export * from './Scaffold';
-export * from './ThemeProvider';
-
+export { default as Checkbox } from './Checkbox';
+export { default as RadioButton } from './RadioButton';
+export { default as Switch } from './Switch';
