@@ -18,5 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+export { default as Chip } from './Chip';
 export { default as IconButton } from './IconButton';
 export { default as StandardButton } from './StandardButton';
+
