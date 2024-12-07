@@ -1,0 +1,124 @@
+.root {
+  position: relative;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+
+  & > div {
+    align-self: center;
+    justify-self: center;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    grid-area: 1 / 1;
+    transition: all 0.1s ease-in-out;
+  }
+
+  & .background {
+    background-color: transparent;
+  }
+
+  &.unselected .background {
+    background-color: transparent;
+  }
+
+  & .overlay {
+    opacity: 0;
+    background-color: var(--md-sys-color-primary);
+  }
+
+  &.unslected .overlay {
+    background-color: var(--md-sys-color-on-surface-variant);
+  }
+
+  & .ripple {
+    background-color: var(--md-sys-color-primary);
+    position: absolute;
+    border-radius: 50%;
+    transition:
+      opacity 200ms,
+      height 0ms,
+      width 0ms;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    box-shadow: 0 0 5px 10px var(--md-sys-color-on-primary);
+  }
+
+  & .foreground {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    /* border: 2px solid var(--md-sys-color-primary); */
+    /* background-color: var(--md-sys-color-primary); */
+    color: var(--md-sys-color-primary);
+
+    box-sizing: border-box;
+  }
+
+  &.unselected .foreground {
+    /* border: 2px solid var(--md-sys-color-on-surface-variant); */
+    /* background-color: transparent; */
+    color: var(--md-sys-color-on-surface);
+  }
+
+  & .foreground .icon {
+    align-self: center;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  &:hover {
+    & .overlay {
+      opacity: 0.12;
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid var(--md-sys-color-secondary);
+    outline-offset: 2px;
+
+    & .overlay {
+      opacity: 0.08;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    & .background {
+      background-color: transparent;
+    }
+
+    & .foreground {
+      color: var(--md-sys-color-on-surface);
+      opacity: 0.38;
+    }
+
+    & .overlay,
+    & .ripple {
+      visibility: hidden;
+    }
+  }
+}
