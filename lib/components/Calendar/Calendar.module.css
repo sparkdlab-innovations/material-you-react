@@ -1,0 +1,176 @@
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 568px;
+  width: 360px;
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  outline: none;
+}
+
+.dialog::backdrop {
+  background-color: var(--md-sys-color-scrim);
+  opacity: 0.75;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.headerContainer {
+  height: 120px;
+  width: 360px;
+
+  padding: 16px 24px 12px 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.supportingText {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.headlineContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.headline {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.rangeContainer {
+  height: 56px;
+  width: 360px;
+
+  padding: 4px 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rangeDropdown {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > span {
+    font-size: 16px;
+    margin-left: 16px;
+  }
+}
+
+.rangeButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.calendarContainer {
+  width: 360px;
+
+  padding: 4px 12px;
+  box-sizing: border-box;
+}
+
+div.calendarContainer > table.table thead.table,
+div.calendarContainer > table.table tr.table {
+  height: 48px;
+}
+
+div.calendarContainer > table.table td.table,
+div.calendarContainer > table.table th.table {
+  width: 48px;
+  min-width: 0px;
+  height: 48px;
+  min-height: 0px;
+
+  padding: 0px;
+
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.calendarButton {
+  height: 48px;
+  width: 48px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  & > div {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.selected > div {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+  }
+
+  &:hover > div {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+  }
+
+  &.disabled > div {
+    cursor: not-allowed;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-outline);
+  }
+
+  &.today > div {
+    border: 1px solid var(--md-sys-color-primary);
+  }
+}
+
+.footerContainer {
+  justify-self: flex-end;
+
+  padding: 4px 12px 12px 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
