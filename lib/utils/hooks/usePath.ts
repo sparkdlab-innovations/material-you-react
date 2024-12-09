@@ -18,6 +18,25 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export * from './hooks';
-export * from './theme';
+'use client';
 
+import { useEffect, useState } from 'react';
+
+export default function usePath() {
+  const [path, setPath] = useState(window?.location.pathname);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const winPath = window?.location.pathname;
+      setPath(winPath);
+    });
+
+    observer.observe(document, { subtree: true, childList: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return path;
+}
