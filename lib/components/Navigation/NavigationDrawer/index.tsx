@@ -18,32 +18,31 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-'use client';
+import NavigationItem from '../NavigationItem';
+import styles from './NavigationDrawer.module.css';
 
-import React, { useContext } from 'react';
-import NavigationContext from '../NavigationContext';
-import styles from '../navigation.module.css';
-
-function NavigationDividerItem(): React.JSX.Element {
-  const navigationContext = useContext(NavigationContext);
-  if (!navigationContext) {
-    throw new Error(
-      'NavigationDividerItem must be used within a NavigationDrawer, NavigationRail, or NavigationBar',
-    );
-  }
-
-  if (navigationContext.navigationContainerType !== 'drawer') {
-    return <></>;
-  }
-
+export default function NavigationDrawer({
+  routes,
+  LinkElement = 'a',
+}: {
+  routes: {
+    href: string;
+    label: string;
+    icon: string;
+    activeRegex: string;
+  }[];
+  LinkElement?: React.ElementType;
+}): JSX.Element {
   return (
-    <div
-      key={`navigation-item-divider-${Math.random() * 1000}`}
-      className={`${styles.navigationDividerItem}`}
-    >
-      <div className={styles.navigationDivider}></div>
-    </div>
+    <nav className={styles.root}>
+      {routes.map((route) => (
+        <NavigationItem
+          key={`nav-item-${route.href}`}
+          mode='expanded'
+          {...route}
+          LinkElement={LinkElement}
+        />
+      ))}
+    </nav>
   );
 }
-
-export default NavigationDividerItem;

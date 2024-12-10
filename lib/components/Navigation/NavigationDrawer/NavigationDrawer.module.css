@@ -18,6 +18,21 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export { default as NavigationBar } from './NavigationBar';
-export { default as NavigationDrawer } from './NavigationDrawer';
-export { default as NavigationRail } from './NavigationRail';
+.root {
+  flex: 0 0 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: var(--md-sys-color-surface);
+
+  padding-top: calc(16px + 16px);
+}
+
+.icon {
+  font-size: 24px;
+  align-self: center;
+  justify-self: center;
+}

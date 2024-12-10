@@ -79,11 +79,6 @@ export default function InkWell({
     );
   }, []);
 
-  const showBackground = useMemo(
-    () => !backgroundColor || backgroundColor !== 'transparent',
-    [backgroundColor],
-  );
-
   const noBoundary = useMemo(
     () => !boxShadow && !outline,
     [boxShadow, outline],
@@ -188,7 +183,7 @@ export default function InkWell({
         }
         {...props}
       >
-        {showBackground && <div className={styles.background}></div>}
+        {backgroundColor && <div className={styles.background}></div>}
         <div className={styles.overlay}></div>
         <div className={styles.ripple}></div>
         <div className={styles.foreground}>{children}</div>
