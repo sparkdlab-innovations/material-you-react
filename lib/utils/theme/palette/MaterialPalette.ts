@@ -27,7 +27,7 @@ import {
   hexFromArgb,
   themeFromImage,
 } from '@material/material-color-utilities';
-import { Variant } from '@material/material-color-utilities/scheme/variant';
+import { Variant } from '@material/material-color-utilities/dynamiccolor/variant';
 import convertPropertyToCSSVariableName from '../convertPropertyToCSSVariableName';
 import DynamicSchemeOptions from './DynamicSchemeOptions.type';
 import MaterialPaletteType from './MaterialPalette.type';
