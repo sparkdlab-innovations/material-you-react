@@ -23,6 +23,5 @@ export { default as Calendar } from './Calendar';
 export * from './Inputs';
 export * from './Interactions';
 export * from './Navigation';
-export * from './Scaffold';
 export * from './ThemeProvider';
 
