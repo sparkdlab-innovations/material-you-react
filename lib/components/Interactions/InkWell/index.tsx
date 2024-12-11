@@ -20,14 +20,7 @@
 
 'use client';
 
-import {
-  CSSProperties,
-  HtmlHTMLAttributes,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { CSSProperties, HtmlHTMLAttributes, ReactNode, useMemo } from 'react';
 import styles from './InkWell.module.css';
 
 export default function InkWell({
@@ -69,16 +62,6 @@ export default function InkWell({
   className?: string;
   props?: HtmlHTMLAttributes<HTMLDivElement>;
 }) {
-  const [rootId, setRootId] = useState<string>('');
-
-  useEffect(() => {
-    setRootId(
-      (Math.random() * Math.random() * Math.random() * Math.pow(10, 3 * 4))
-        .toString(16)
-        .split('.')[0],
-    );
-  }, []);
-
   const noBoundary = useMemo(
     () => !boxShadow && !outline,
     [boxShadow, outline],
@@ -86,21 +69,22 @@ export default function InkWell({
 
   const inkWellStyles = useMemo(
     () => `
-    #inkwell-${rootId} {
-      --md-comp-inkwell-height: ${height ?? '100%'};\n
-      --md-comp-inkwell-width: ${width ?? 'fit-content'};\n
-      --md-comp-inkwell-border-radius: ${borderRadius ?? 'calc(var(--md-comp-inkwell-height) / 2)'};\n
-      --md-comp-inkwell-box-shadow: ${boxShadow ?? 'none'};\n
-      --md-comp-inkwell-outline: ${outline ?? 'none'};\n
+    @scope {
+      :scope {
+        --md-comp-inkwell-height: ${height ?? '100%'};\n
+        --md-comp-inkwell-width: ${width ?? 'fit-content'};\n
+        --md-comp-inkwell-border-radius: ${borderRadius ?? 'calc(var(--md-comp-inkwell-height) / 2)'};\n
+        --md-comp-inkwell-box-shadow: ${boxShadow ?? 'none'};\n
+        --md-comp-inkwell-outline: ${outline ?? 'none'};\n
 
-      --md-comp-inkwell-foreground-color: ${foregroundColor ?? 'var(--md-sys-color-on-primary)'};\n
-      --md-comp-inkwell-background-color: ${backgroundColor ?? 'transparent'};\n
-      --md-comp-inkwell-overlay-color: ${overlayColor ?? 'var(--md-sys-color-on-primary)'};\n
-      --md-comp-inkwell-disabled-color: ${disabledColor ?? 'var(--md-sys-color-on-surface)'};\n
+        --md-comp-inkwell-foreground-color: ${foregroundColor ?? 'var(--md-sys-color-on-primary)'};\n
+        --md-comp-inkwell-background-color: ${backgroundColor ?? 'transparent'};\n
+        --md-comp-inkwell-overlay-color: ${overlayColor ?? 'var(--md-sys-color-on-primary)'};\n
+        --md-comp-inkwell-disabled-color: ${disabledColor ?? 'var(--md-sys-color-on-surface)'};\n
+      }
     }
   `,
     [
-      rootId,
       height,
       width,
       borderRadius,
@@ -114,10 +98,9 @@ export default function InkWell({
   );
 
   return (
-    <>
+    <div className={styles.empty}>
       <style>{inkWellStyles}</style>
       <div
-        id={`inkwell-${rootId}`}
         className={`${styles.root} ${isDisabled ? styles.disabled : ''} ${noBoundary ? styles.noBoundary : ''} ${className ?? ''}`}
         onMouseDown={
           !isDisabled
@@ -188,6 +171,6 @@ export default function InkWell({
         <div className={styles.ripple}></div>
         <div className={styles.foreground}>{children}</div>
       </div>
-    </>
+    </div>
   );
 }
