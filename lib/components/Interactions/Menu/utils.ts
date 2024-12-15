@@ -18,7 +18,24 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export { default as InkWell } from './InkWell';
-export { default as Menu } from './Menu';
-export type { DialogCoordinates } from './Menu/Menu.types';
+import { DialogCoordinates } from './Menu.types';
 
+export function getInnerCoordinates(
+  currentCoordinates: DialogCoordinates,
+  width: number,
+  totalItems: number,
+  index: number,
+): DialogCoordinates {
+  return {
+    top: currentCoordinates.top
+      ? currentCoordinates.top + 12 + (index + 1) * 48
+      : undefined,
+    bottom: currentCoordinates.bottom
+      ? currentCoordinates.bottom - 12 - (totalItems - index) * 48
+      : undefined,
+    left: currentCoordinates.left ? currentCoordinates.left - width : undefined,
+    right: currentCoordinates.right
+      ? currentCoordinates.right + width
+      : undefined,
+  } as DialogCoordinates;
+}

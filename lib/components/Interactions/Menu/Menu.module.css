@@ -1,0 +1,86 @@
+/**
+ * @license
+ * Material You React Package
+ * Copyright (C) 2024  Rutaj Dash
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, only version 3 of the License.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * The contact information of the author and copyright owner of this
+ * program can be found at <https://github.com/rutajdash>
+ */
+
+.root {
+  min-width: 112px;
+  max-width: min(280px, 90vw);
+
+  max-height: min(400px, 90vh);
+
+  border-radius: 4px;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  padding: 8px 0;
+
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: 0px 0px 3px 1px var(--md-sys-color-shadow);
+  outline: none;
+  border: none;
+}
+
+.root::backdrop {
+  background-color: transparent;
+}
+
+.root[open] {
+  display: flex;
+}
+
+.actionMenuItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  gap: 16px;
+
+  cursor: pointer;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.leadingSection {
+  gap: 12px;
+}
+
+.leadingIcon,
+.trailingIcon {
+  font-size: 24px;
+}
+
+.iconPlaceholder {
+  width: 24px;
+  height: 24px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+}
