@@ -18,8 +18,10 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export { default as NavigationDrawer } from './NavigationDrawer';
-export { default as NavigationItem } from './NavigationItem';
-export type { RouteType } from './NavigationItem/NavigationItem.type';
-export { default as NavigationRail } from './NavigationRail';
-
+export type RouteType = {
+  href: string;
+  shortLabel: string;
+  label: string;
+  icon: string;
+  activeRegex: string;
+};

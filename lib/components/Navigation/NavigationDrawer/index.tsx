@@ -18,19 +18,14 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-import NavigationItem from '../NavigationItem';
+import { NavigationItem, RouteType } from '..';
 import styles from './NavigationDrawer.module.css';
 
 export default function NavigationDrawer({
   routes,
   LinkElement = 'a',
 }: {
-  routes: {
-    href: string;
-    label: string;
-    icon: string;
-    activeRegex: string;
-  }[];
+  routes: RouteType[];
   LinkElement?: React.ElementType;
 }): JSX.Element {
   return (

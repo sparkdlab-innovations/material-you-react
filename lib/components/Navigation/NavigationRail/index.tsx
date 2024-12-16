@@ -21,8 +21,8 @@
 'use client';
 
 import { useRef } from 'react';
+import { NavigationItem, RouteType } from '..';
 import { InkWell } from '../../Interactions';
-import NavigationItem from '../NavigationItem';
 import styles from './NavigationRail.module.css';
 
 export default function NavigationRail({
@@ -32,12 +32,7 @@ export default function NavigationRail({
   alignMode = 'start',
   LinkElement = 'a',
 }: {
-  routes: {
-    href: string;
-    label: string;
-    icon: string;
-    activeRegex: string;
-  }[];
+  routes: RouteType[];
   expandable?: true;
   action?: {
     icon: string;

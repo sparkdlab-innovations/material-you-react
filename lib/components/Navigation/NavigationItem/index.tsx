@@ -24,22 +24,20 @@ import { useMemo } from 'react';
 import { usePath } from '../../../utils';
 import { InkWell } from '../../Interactions';
 import styles from './NavigationItem.module.css';
+import { RouteType } from './NavigationItem.type';
 
 export default function NavigationItem({
   mode,
   href,
+  shortLabel,
   label,
   icon,
   activeRegex,
   LinkElement = 'a',
 }: {
   mode: 'compact' | 'expanded';
-  href: string;
-  label: string;
-  icon: string;
-  activeRegex: string;
   LinkElement?: React.ElementType;
-}): JSX.Element {
+} & RouteType): JSX.Element {
   const pathname = usePath();
   const isActive = useMemo(() => {
     return new RegExp(activeRegex).test(pathname);
@@ -77,7 +75,7 @@ export default function NavigationItem({
       </InkWell>
       {mode === 'compact' && (
         <span className={`${styles.label} ${isActive && styles.active}`}>
-          {label}
+          {shortLabel}
         </span>
       )}
     </LinkElement>
