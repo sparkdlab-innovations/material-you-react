@@ -18,7 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-import { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import styles from './Calendar.module.css';
 import CalendarButton from './CalendarButton';
 import { generateCalendar, isDisabled, isSelected, isToday } from './utils';
@@ -37,7 +37,7 @@ export default function CalendarLayout({
   setSelectedDate: Dispatch<SetStateAction<number>>;
   min?: number;
   max?: number;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <>
       {generateCalendar(selectedMonth, selectedYear).map((week, index1) => (
@@ -85,7 +85,7 @@ function CalendarLayoutItem({
   setSelectedDate: Dispatch<SetStateAction<number>>;
   min?: number;
   max?: number;
-}): JSX.Element {
+}): React.JSX.Element {
   const disabled = isDisabled(min, max, selectedYear, selectedMonth, date);
   return (
     <CalendarButton

@@ -18,6 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+import React from 'react';
 import styles from './Calendar.module.css';
 
 export default function CalendarButton({
@@ -30,7 +31,7 @@ export default function CalendarButton({
   isSelected?: boolean;
   isToday?: boolean;
   onTap?: () => void;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <div
       className={`${styles.calendarButton} ${!onTap ? styles.disabled : ''} ${

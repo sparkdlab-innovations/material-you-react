@@ -20,7 +20,7 @@
 
 'use client';
 
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { usePath } from '../../../utils';
 import { InkWell } from '../../Interactions';
 import styles from './NavigationItem.module.css';
@@ -37,7 +37,7 @@ export default function NavigationItem({
 }: {
   mode: 'compact' | 'expanded';
   LinkElement?: React.ElementType;
-} & RouteType): JSX.Element {
+} & RouteType): React.JSX.Element {
   const pathname = usePath();
   const isActive = useMemo(() => {
     return new RegExp(activeRegex).test(pathname);

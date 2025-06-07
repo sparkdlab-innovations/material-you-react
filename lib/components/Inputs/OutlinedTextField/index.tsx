@@ -20,7 +20,7 @@
 
 'use client';
 
-import { ChangeEvent, HTMLAttributes, MouseEventHandler } from 'react';
+import React, { ChangeEvent, HTMLAttributes, MouseEventHandler } from 'react';
 import styles from './OutlinedTextField.module.css';
 
 // TODO: Add error message display and styling
@@ -51,7 +51,7 @@ export default function OutlinedTextField({
   handleInputChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   containerProps?: HTMLAttributes<HTMLDivElement>;
   inputProps?: HTMLAttributes<HTMLInputElement>;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <div
       className={`${styles.root} ${!label ? styles.noLabel : ''} ${className}`}

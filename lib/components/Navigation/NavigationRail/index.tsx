@@ -20,7 +20,7 @@
 
 'use client';
 
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { NavigationItem, RouteType } from '..';
 import { InkWell } from '../../Interactions';
 import styles from './NavigationRail.module.css';
@@ -40,7 +40,7 @@ export default function NavigationRail({
   };
   alignMode?: 'start' | 'center' | 'end';
   LinkElement?: React.ElementType;
-}): JSX.Element {
+}): React.JSX.Element {
   const dialog = useRef<HTMLDialogElement>(null);
 
   return (

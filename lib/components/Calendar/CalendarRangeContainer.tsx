@@ -18,7 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-import { Dispatch, SetStateAction, useMemo } from 'react';
+import React, { Dispatch, SetStateAction, useMemo } from 'react';
 import { IconButton } from '../Buttons';
 import styles from './Calendar.module.css';
 import { getMonthName } from './utils';
@@ -37,7 +37,7 @@ export default function CalendarRangeContainer({
   setSelectedYear: Dispatch<SetStateAction<number>>;
   min?: number;
   max?: number;
-}): JSX.Element {
+}): React.JSX.Element {
   const isLeftActive = useMemo(() => {
     if (!min) {
       return true;

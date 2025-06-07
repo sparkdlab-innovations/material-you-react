@@ -18,6 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+import React from 'react';
 import { StandardButton } from '../Buttons';
 import styles from './Calendar.module.css';
 
@@ -29,7 +30,7 @@ export default function CalendarFooter({
   selectedDate: number;
   cancel: () => void;
   submit?: (value: number) => void;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <div className={styles.footerContainer}>
       <StandardButton

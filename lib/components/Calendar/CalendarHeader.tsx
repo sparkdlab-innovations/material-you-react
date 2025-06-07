@@ -18,6 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+import React from 'react';
 import { IconButton } from '../Buttons';
 import styles from './Calendar.module.css';
 import { getDayName, getMonthName } from './utils';
@@ -26,7 +27,7 @@ export default function CalendarHeader({
   selectedDate,
 }: {
   selectedDate: number;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <div className={styles.headerContainer}>
       <span className={styles.supportingText}>Select date</span>

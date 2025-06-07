@@ -20,7 +20,7 @@
 
 'use client';
 
-import { HtmlHTMLAttributes } from 'react';
+import React, { HtmlHTMLAttributes } from 'react';
 import styles from './Switch.module.css';
 
 export default function Switch({
@@ -36,7 +36,7 @@ export default function Switch({
   trueStateIcon?: string;
   falseStateIcon?: string;
   isDisabled?: boolean;
-} & HtmlHTMLAttributes<HTMLDivElement>): JSX.Element {
+} & HtmlHTMLAttributes<HTMLDivElement>): React.JSX.Element {
   return (
     <div
       className={`${styles.root} ${

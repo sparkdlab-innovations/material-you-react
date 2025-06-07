@@ -68,7 +68,7 @@ export type MenuItem<T extends 'actions' | 'select'> = T extends 'actions'
 export type MenuProps<T extends 'actions' | 'select'> = {
   type: T;
   items: MenuItem<T>[];
-  dialogRef: RefObject<HTMLDialogElement>;
+  dialogRef: RefObject<HTMLDialogElement | null>;
   coordinates: DialogCoordinates;
   tapOutsideToDismiss?: boolean;
 } & (T extends 'select'

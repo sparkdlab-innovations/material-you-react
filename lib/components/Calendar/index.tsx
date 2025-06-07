@@ -20,7 +20,7 @@
 
 'use client';
 
-import { RefObject, useEffect, useState } from 'react';
+import React, { RefObject, useEffect, useState } from 'react';
 import styles from './Calendar.module.css';
 import CalendarFooter from './CalendarFooter';
 import CalendarHeader from './CalendarHeader';
@@ -42,7 +42,7 @@ export default function Calendar({
   dialogRef: RefObject<HTMLDialogElement>;
   close: () => void;
   submit?: (value: number) => void;
-}): JSX.Element {
+}): React.JSX.Element {
   const [selectedDate, setSelectedDate] = useState(value);
   const [selectedMonth, setSelectedMonth] = useState(
     new Date(value).getMonth(),

@@ -20,7 +20,7 @@
 
 'use client';
 
-import {
+import React, {
   ChangeEvent,
   HTMLAttributes,
   HtmlHTMLAttributes,
@@ -55,7 +55,7 @@ export default function FilledTextField({
   handleInputChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   containerProps?: HtmlHTMLAttributes<HTMLDivElement>;
   inputProps?: HtmlHTMLAttributes<HTMLInputElement>;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <div
       className={`${styles.root} ${!label ? styles.noLabel : ''} ${className}`}

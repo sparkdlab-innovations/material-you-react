@@ -18,6 +18,7 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+import React from 'react';
 import { NavigationItem, RouteType } from '..';
 import styles from './NavigationDrawer.module.css';
 
@@ -27,7 +28,7 @@ export default function NavigationDrawer({
 }: {
   routes: RouteType[];
   LinkElement?: React.ElementType;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <nav className={styles.root}>
       {routes.map((route) => (
