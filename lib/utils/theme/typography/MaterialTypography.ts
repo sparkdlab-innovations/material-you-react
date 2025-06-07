@@ -21,7 +21,10 @@
 import convertPropertyToCSSVariableName from '../convertPropertyToCSSVariableName';
 import MaterialTypeface from './MaterialTypeface';
 import { MaterialTypefaceType } from './MaterialTypeface.type';
-import { MaterialTypescale, MaterialTypescaleType } from './MaterialTypescale.type';
+import {
+  MaterialTypescale,
+  MaterialTypescaleType,
+} from './MaterialTypescale.type';
 
 export default class MaterialTypography {
   public static readonly PT_TO_REM_FACTOR: number = 0.0625;
@@ -30,103 +33,226 @@ export default class MaterialTypography {
 
   public readonly typescale: MaterialTypescale;
 
-  constructor(typography?: { typeface?: MaterialTypefaceType; typescale?: MaterialTypescaleType }) {
+  constructor(typography?: {
+    typeface?: MaterialTypefaceType;
+    typescale?: MaterialTypescaleType;
+  }) {
     this.typeface = new MaterialTypeface(typography?.typeface ?? {});
 
     this.typescale = {
-      displayLargeFont: typography?.typescale?.display?.large?.font ?? 'var(--md-ref-typeface-brand)',
+      displayLargeFont:
+        typography?.typescale?.display?.large?.font ??
+        'var(--md-ref-typeface-brand)',
       displayLargeWeight: typography?.typescale?.display?.large?.weight ?? 400,
-      displayLargeSize: typography?.typescale?.display?.large?.size ?? MaterialTypography.getRemFromPt(57),
-      displayLargeTracking: typography?.typescale?.display?.large?.tracking ?? MaterialTypography.getRemFromPt(-0.25),
-      displayLargeLineHeight: typography?.typescale?.display?.large?.lineHeight ?? MaterialTypography.getRemFromPt(64),
+      displayLargeSize:
+        typography?.typescale?.display?.large?.size ??
+        MaterialTypography.getRemFromPt(57),
+      displayLargeTracking:
+        typography?.typescale?.display?.large?.tracking ??
+        MaterialTypography.getRemFromPt(-0.25),
+      displayLargeLineHeight:
+        typography?.typescale?.display?.large?.lineHeight ??
+        MaterialTypography.getRemFromPt(64),
 
-      displayMediumFont: typography?.typescale?.display?.medium?.font ?? 'var(--md-ref-typeface-brand)',
-      displayMediumWeight: typography?.typescale?.display?.medium?.weight ?? 400,
-      displayMediumSize: typography?.typescale?.display?.medium?.size ?? MaterialTypography.getRemFromPt(45),
-      displayMediumTracking: typography?.typescale?.display?.medium?.tracking ?? MaterialTypography.getRemFromPt(0),
+      displayMediumFont:
+        typography?.typescale?.display?.medium?.font ??
+        'var(--md-ref-typeface-brand)',
+      displayMediumWeight:
+        typography?.typescale?.display?.medium?.weight ?? 400,
+      displayMediumSize:
+        typography?.typescale?.display?.medium?.size ??
+        MaterialTypography.getRemFromPt(45),
+      displayMediumTracking:
+        typography?.typescale?.display?.medium?.tracking ??
+        MaterialTypography.getRemFromPt(0),
       displayMediumLineHeight:
-        typography?.typescale?.display?.medium?.lineHeight ?? MaterialTypography.getRemFromPt(52),
+        typography?.typescale?.display?.medium?.lineHeight ??
+        MaterialTypography.getRemFromPt(52),
 
-      displaySmallFont: typography?.typescale?.display?.small?.font ?? 'var(--md-ref-typeface-brand)',
+      displaySmallFont:
+        typography?.typescale?.display?.small?.font ??
+        'var(--md-ref-typeface-brand)',
       displaySmallWeight: typography?.typescale?.display?.small?.weight ?? 400,
-      displaySmallSize: typography?.typescale?.display?.small?.size ?? MaterialTypography.getRemFromPt(36),
-      displaySmallTracking: typography?.typescale?.display?.small?.tracking ?? MaterialTypography.getRemFromPt(0),
-      displaySmallLineHeight: typography?.typescale?.display?.small?.lineHeight ?? MaterialTypography.getRemFromPt(44),
+      displaySmallSize:
+        typography?.typescale?.display?.small?.size ??
+        MaterialTypography.getRemFromPt(36),
+      displaySmallTracking:
+        typography?.typescale?.display?.small?.tracking ??
+        MaterialTypography.getRemFromPt(0),
+      displaySmallLineHeight:
+        typography?.typescale?.display?.small?.lineHeight ??
+        MaterialTypography.getRemFromPt(44),
 
-      headlineLargeFont: typography?.typescale?.headline?.large?.font ?? 'var(--md-ref-typeface-brand)',
-      headlineLargeWeight: typography?.typescale?.headline?.large?.weight ?? 400,
-      headlineLargeSize: typography?.typescale?.headline?.large?.size ?? MaterialTypography.getRemFromPt(32),
-      headlineLargeTracking: typography?.typescale?.headline?.large?.tracking ?? MaterialTypography.getRemFromPt(0),
+      headlineLargeFont:
+        typography?.typescale?.headline?.large?.font ??
+        'var(--md-ref-typeface-brand)',
+      headlineLargeWeight:
+        typography?.typescale?.headline?.large?.weight ?? 400,
+      headlineLargeSize:
+        typography?.typescale?.headline?.large?.size ??
+        MaterialTypography.getRemFromPt(32),
+      headlineLargeTracking:
+        typography?.typescale?.headline?.large?.tracking ??
+        MaterialTypography.getRemFromPt(0),
       headlineLargeLineHeight:
-        typography?.typescale?.headline?.large?.lineHeight ?? MaterialTypography.getRemFromPt(40),
+        typography?.typescale?.headline?.large?.lineHeight ??
+        MaterialTypography.getRemFromPt(40),
 
-      headlineMediumFont: typography?.typescale?.headline?.medium?.font ?? 'var(--md-ref-typeface-brand)',
-      headlineMediumWeight: typography?.typescale?.headline?.medium?.weight ?? 400,
-      headlineMediumSize: typography?.typescale?.headline?.medium?.size ?? MaterialTypography.getRemFromPt(28),
-      headlineMediumTracking: typography?.typescale?.headline?.medium?.tracking ?? MaterialTypography.getRemFromPt(0),
+      headlineMediumFont:
+        typography?.typescale?.headline?.medium?.font ??
+        'var(--md-ref-typeface-brand)',
+      headlineMediumWeight:
+        typography?.typescale?.headline?.medium?.weight ?? 400,
+      headlineMediumSize:
+        typography?.typescale?.headline?.medium?.size ??
+        MaterialTypography.getRemFromPt(28),
+      headlineMediumTracking:
+        typography?.typescale?.headline?.medium?.tracking ??
+        MaterialTypography.getRemFromPt(0),
       headlineMediumLineHeight:
-        typography?.typescale?.headline?.medium?.lineHeight ?? MaterialTypography.getRemFromPt(36),
+        typography?.typescale?.headline?.medium?.lineHeight ??
+        MaterialTypography.getRemFromPt(36),
 
-      headlineSmallFont: typography?.typescale?.headline?.small?.font ?? 'var(--md-ref-typeface-brand)',
-      headlineSmallWeight: typography?.typescale?.headline?.small?.weight ?? 400,
-      headlineSmallSize: typography?.typescale?.headline?.small?.size ?? MaterialTypography.getRemFromPt(24),
-      headlineSmallTracking: typography?.typescale?.headline?.small?.tracking ?? MaterialTypography.getRemFromPt(0),
+      headlineSmallFont:
+        typography?.typescale?.headline?.small?.font ??
+        'var(--md-ref-typeface-brand)',
+      headlineSmallWeight:
+        typography?.typescale?.headline?.small?.weight ?? 400,
+      headlineSmallSize:
+        typography?.typescale?.headline?.small?.size ??
+        MaterialTypography.getRemFromPt(24),
+      headlineSmallTracking:
+        typography?.typescale?.headline?.small?.tracking ??
+        MaterialTypography.getRemFromPt(0),
       headlineSmallLineHeight:
-        typography?.typescale?.headline?.small?.lineHeight ?? MaterialTypography.getRemFromPt(32),
+        typography?.typescale?.headline?.small?.lineHeight ??
+        MaterialTypography.getRemFromPt(32),
 
-      titleLargeFont: typography?.typescale?.title?.large?.font ?? 'var(--md-ref-typeface-brand)',
+      titleLargeFont:
+        typography?.typescale?.title?.large?.font ??
+        'var(--md-ref-typeface-brand)',
       titleLargeWeight: typography?.typescale?.title?.large?.weight ?? 400,
-      titleLargeSize: typography?.typescale?.title?.large?.size ?? MaterialTypography.getRemFromPt(22),
-      titleLargeTracking: typography?.typescale?.title?.large?.tracking ?? MaterialTypography.getRemFromPt(0),
-      titleLargeLineHeight: typography?.typescale?.title?.large?.lineHeight ?? MaterialTypography.getRemFromPt(28),
+      titleLargeSize:
+        typography?.typescale?.title?.large?.size ??
+        MaterialTypography.getRemFromPt(22),
+      titleLargeTracking:
+        typography?.typescale?.title?.large?.tracking ??
+        MaterialTypography.getRemFromPt(0),
+      titleLargeLineHeight:
+        typography?.typescale?.title?.large?.lineHeight ??
+        MaterialTypography.getRemFromPt(28),
 
-      titleMediumFont: typography?.typescale?.title?.medium?.font ?? 'var(--md-ref-typeface-plain)',
+      titleMediumFont:
+        typography?.typescale?.title?.medium?.font ??
+        'var(--md-ref-typeface-plain)',
       titleMediumWeight: typography?.typescale?.title?.medium?.weight ?? 500,
-      titleMediumSize: typography?.typescale?.title?.medium?.size ?? MaterialTypography.getRemFromPt(16),
-      titleMediumTracking: typography?.typescale?.title?.medium?.tracking ?? MaterialTypography.getRemFromPt(0.15),
-      titleMediumLineHeight: typography?.typescale?.title?.medium?.lineHeight ?? MaterialTypography.getRemFromPt(24),
+      titleMediumSize:
+        typography?.typescale?.title?.medium?.size ??
+        MaterialTypography.getRemFromPt(16),
+      titleMediumTracking:
+        typography?.typescale?.title?.medium?.tracking ??
+        MaterialTypography.getRemFromPt(0.15),
+      titleMediumLineHeight:
+        typography?.typescale?.title?.medium?.lineHeight ??
+        MaterialTypography.getRemFromPt(24),
 
-      titleSmallFont: typography?.typescale?.title?.small?.font ?? 'var(--md-ref-typeface-plain)',
+      titleSmallFont:
+        typography?.typescale?.title?.small?.font ??
+        'var(--md-ref-typeface-plain)',
       titleSmallWeight: typography?.typescale?.title?.small?.weight ?? 500,
-      titleSmallSize: typography?.typescale?.title?.small?.size ?? MaterialTypography.getRemFromPt(14),
-      titleSmallTracking: typography?.typescale?.title?.small?.tracking ?? MaterialTypography.getRemFromPt(0.1),
-      titleSmallLineHeight: typography?.typescale?.title?.small?.lineHeight ?? MaterialTypography.getRemFromPt(20),
+      titleSmallSize:
+        typography?.typescale?.title?.small?.size ??
+        MaterialTypography.getRemFromPt(14),
+      titleSmallTracking:
+        typography?.typescale?.title?.small?.tracking ??
+        MaterialTypography.getRemFromPt(0.1),
+      titleSmallLineHeight:
+        typography?.typescale?.title?.small?.lineHeight ??
+        MaterialTypography.getRemFromPt(20),
 
-      bodyLargeFont: typography?.typescale?.body?.large?.font ?? 'var(--md-ref-typeface-plain)',
+      bodyLargeFont:
+        typography?.typescale?.body?.large?.font ??
+        'var(--md-ref-typeface-plain)',
       bodyLargeWeight: typography?.typescale?.body?.large?.weight ?? 400,
-      bodyLargeSize: typography?.typescale?.body?.large?.size ?? MaterialTypography.getRemFromPt(16),
-      bodyLargeTracking: typography?.typescale?.body?.large?.tracking ?? MaterialTypography.getRemFromPt(0.5),
-      bodyLargeLineHeight: typography?.typescale?.body?.large?.lineHeight ?? MaterialTypography.getRemFromPt(24),
+      bodyLargeSize:
+        typography?.typescale?.body?.large?.size ??
+        MaterialTypography.getRemFromPt(16),
+      bodyLargeTracking:
+        typography?.typescale?.body?.large?.tracking ??
+        MaterialTypography.getRemFromPt(0.5),
+      bodyLargeLineHeight:
+        typography?.typescale?.body?.large?.lineHeight ??
+        MaterialTypography.getRemFromPt(24),
 
-      bodyMediumFont: typography?.typescale?.body?.medium?.font ?? 'var(--md-ref-typeface-plain)',
+      bodyMediumFont:
+        typography?.typescale?.body?.medium?.font ??
+        'var(--md-ref-typeface-plain)',
       bodyMediumWeight: typography?.typescale?.body?.medium?.weight ?? 400,
-      bodyMediumSize: typography?.typescale?.body?.medium?.size ?? MaterialTypography.getRemFromPt(14),
-      bodyMediumTracking: typography?.typescale?.body?.medium?.tracking ?? MaterialTypography.getRemFromPt(0.25),
-      bodyMediumLineHeight: typography?.typescale?.body?.medium?.lineHeight ?? MaterialTypography.getRemFromPt(20),
+      bodyMediumSize:
+        typography?.typescale?.body?.medium?.size ??
+        MaterialTypography.getRemFromPt(14),
+      bodyMediumTracking:
+        typography?.typescale?.body?.medium?.tracking ??
+        MaterialTypography.getRemFromPt(0.25),
+      bodyMediumLineHeight:
+        typography?.typescale?.body?.medium?.lineHeight ??
+        MaterialTypography.getRemFromPt(20),
 
-      bodySmallFont: typography?.typescale?.body?.small?.font ?? 'var(--md-ref-typeface-plain)',
+      bodySmallFont:
+        typography?.typescale?.body?.small?.font ??
+        'var(--md-ref-typeface-plain)',
       bodySmallWeight: typography?.typescale?.body?.small?.weight ?? 400,
-      bodySmallSize: typography?.typescale?.body?.small?.size ?? MaterialTypography.getRemFromPt(12),
-      bodySmallTracking: typography?.typescale?.body?.small?.tracking ?? MaterialTypography.getRemFromPt(0.14),
-      bodySmallLineHeight: typography?.typescale?.body?.small?.lineHeight ?? MaterialTypography.getRemFromPt(16),
+      bodySmallSize:
+        typography?.typescale?.body?.small?.size ??
+        MaterialTypography.getRemFromPt(12),
+      bodySmallTracking:
+        typography?.typescale?.body?.small?.tracking ??
+        MaterialTypography.getRemFromPt(0.14),
+      bodySmallLineHeight:
+        typography?.typescale?.body?.small?.lineHeight ??
+        MaterialTypography.getRemFromPt(16),
 
-      labelLargeFont: typography?.typescale?.label?.large?.font ?? 'var(--md-ref-typeface-plain)',
+      labelLargeFont:
+        typography?.typescale?.label?.large?.font ??
+        'var(--md-ref-typeface-plain)',
       labelLargeWeight: typography?.typescale?.label?.large?.weight ?? 500,
-      labelLargeSize: typography?.typescale?.label?.large?.size ?? MaterialTypography.getRemFromPt(14),
-      labelLargeTracking: typography?.typescale?.label?.large?.tracking ?? MaterialTypography.getRemFromPt(0.1),
-      labelLargeLineHeight: typography?.typescale?.label?.large?.lineHeight ?? MaterialTypography.getRemFromPt(20),
+      labelLargeSize:
+        typography?.typescale?.label?.large?.size ??
+        MaterialTypography.getRemFromPt(14),
+      labelLargeTracking:
+        typography?.typescale?.label?.large?.tracking ??
+        MaterialTypography.getRemFromPt(0.1),
+      labelLargeLineHeight:
+        typography?.typescale?.label?.large?.lineHeight ??
+        MaterialTypography.getRemFromPt(20),
 
-      labelMediumFont: typography?.typescale?.label?.medium?.font ?? 'var(--md-ref-typeface-plain)',
+      labelMediumFont:
+        typography?.typescale?.label?.medium?.font ??
+        'var(--md-ref-typeface-plain)',
       labelMediumWeight: typography?.typescale?.label?.medium?.weight ?? 500,
-      labelMediumSize: typography?.typescale?.label?.medium?.size ?? MaterialTypography.getRemFromPt(12),
-      labelMediumTracking: typography?.typescale?.label?.medium?.tracking ?? MaterialTypography.getRemFromPt(0.5),
-      labelMediumLineHeight: typography?.typescale?.label?.medium?.lineHeight ?? MaterialTypography.getRemFromPt(16),
+      labelMediumSize:
+        typography?.typescale?.label?.medium?.size ??
+        MaterialTypography.getRemFromPt(12),
+      labelMediumTracking:
+        typography?.typescale?.label?.medium?.tracking ??
+        MaterialTypography.getRemFromPt(0.5),
+      labelMediumLineHeight:
+        typography?.typescale?.label?.medium?.lineHeight ??
+        MaterialTypography.getRemFromPt(16),
 
-      labelSmallFont: typography?.typescale?.label?.small?.font ?? 'var(--md-ref-typeface-plain)',
+      labelSmallFont:
+        typography?.typescale?.label?.small?.font ??
+        'var(--md-ref-typeface-plain)',
       labelSmallWeight: typography?.typescale?.label?.small?.weight ?? 500,
-      labelSmallSize: typography?.typescale?.label?.small?.size ?? MaterialTypography.getRemFromPt(11),
-      labelSmallTracking: typography?.typescale?.label?.small?.tracking ?? MaterialTypography.getRemFromPt(0.5),
-      labelSmallLineHeight: typography?.typescale?.label?.small?.lineHeight ?? MaterialTypography.getRemFromPt(16),
+      labelSmallSize:
+        typography?.typescale?.label?.small?.size ??
+        MaterialTypography.getRemFromPt(11),
+      labelSmallTracking:
+        typography?.typescale?.label?.small?.tracking ??
+        MaterialTypography.getRemFromPt(0.5),
+      labelSmallLineHeight:
+        typography?.typescale?.label?.small?.lineHeight ??
+        MaterialTypography.getRemFromPt(16),
     };
   }
 

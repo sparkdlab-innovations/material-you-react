@@ -53,7 +53,13 @@ export default class Breakpoint {
    * Creates a new instance of the Breakpoint class.
    * @param breakpoints - The breakpoint configuration options.
    */
-  constructor(breakpoints?: { compact?: number; medium?: number; expanded?: number; large?: number; xlarge?: number }) {
+  constructor(breakpoints?: {
+    compact?: number;
+    medium?: number;
+    expanded?: number;
+    large?: number;
+    xlarge?: number;
+  }) {
     this.compact = breakpoints?.compact ?? 600;
     this.medium = breakpoints?.medium ?? 860;
     this.expanded = breakpoints?.expanded ?? 1200;
@@ -88,7 +94,8 @@ export default class Breakpoint {
    * @returns True if the breakpoint matches, false otherwise.
    */
   public isBreakpointMatch(size: BreakpointTypes, window: Window): boolean {
-    return window.matchMedia(this.getMediaQuery(size).replace('@media ', '')).matches;
+    return window.matchMedia(this.getMediaQuery(size).replace('@media ', ''))
+      .matches;
   }
 
   /**

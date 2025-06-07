@@ -18,4 +18,6 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
+export * from './hooks';
 export * from './theme';
+

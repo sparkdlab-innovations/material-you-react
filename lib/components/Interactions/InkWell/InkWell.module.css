@@ -1,0 +1,131 @@
+/**
+ * @license
+ * Material You React Package
+ * Copyright (C) 2024  Rutaj Dash
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, only version 3 of the License.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * The contact information of the author and copyright owner of this
+ * program can be found at <https://github.com/rutajdash>
+ */
+
+.empty {
+  display: unset;
+  height: auto;
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.root {
+  position: relative;
+
+  height: var(--md-comp-inkwell-height);
+  width: var(--md-comp-inkwell-width);
+  border-radius: var(--md-comp-inkwell-border-radius);
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  cursor: pointer;
+
+  box-shadow: var(--md-comp-inkwell-box-shadow);
+  outline: var(--md-comp-inkwell-outline);
+
+  transition: all 0.1s ease-in-out;
+
+  & > div {
+    height: var(--md-comp-inkwell-height);
+
+    grid-area: 1 / 1;
+
+    transition: all 0.1s ease-in-out;
+  }
+
+  & .background {
+    background-color: var(--md-comp-inkwell-background-color);
+  }
+
+  & .overlay {
+    opacity: 0;
+    background-color: var(--md-comp-inkwell-overlay-color);
+  }
+
+  & .ripple {
+    background-color: var(--md-comp-inkwell-overlay-color);
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    border-radius: 50%;
+    transition:
+      opacity 200ms,
+      height 0ms,
+      width 0ms;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    box-shadow: 0 0 5px 5px var(--md-comp-inkwell-overlay-color);
+  }
+
+  & .foreground {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: stretch;
+    align-content: stretch;
+
+    color: var(--md-comp-inkwell-foreground-color);
+  }
+
+  &:hover {
+    & .overlay {
+      opacity: 0.12;
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid var(--md-sys-color-secondary);
+    outline-offset: 2px;
+
+    & .overlay {
+      opacity: 0.08;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    box-shadow: 0px 1px 1px 0px var(--md-sys-color-shadow);
+
+    &.noBoundary {
+      box-shadow: none;
+    }
+
+    & .background {
+      background-color: var(--md-comp-inkwell-disabled-color);
+      opacity: 0.12;
+    }
+
+    & .foreground {
+      color: var(--md-comp-inkwell-disabled-color);
+      opacity: 0.38;
+    }
+
+    & .overlay,
+    & .ripple {
+      visibility: hidden;
+    }
+  }
+}

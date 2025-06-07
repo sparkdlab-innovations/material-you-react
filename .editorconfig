@@ -1,55 +1,20 @@
 root = true
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
 [*]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-[*.ts]
-indent_style = space
+[*.{html,js,jsx,ts,tsx,css,scss,less,mjs,cjs}]
 indent_size = 2
-end_of_line = crlf
-
-[*.js]
 indent_style = space
-indent_size = 2
-end_of_line = crlf
-
-[*.jsx]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
-
-[*.tsx]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
 
 [*.json]
-indent_style = space
 indent_size = 2
-end_of_line = crlf
-
-[*.html]
 indent_style = space
-indent_size = 2
-end_of_line = crlf
-
-[*.css]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
-
-[*.scss]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
-
-[*.less]
-indent_style = space
-indent_size = 2
-end_of_line = crlf
 
 [*.md]
 trim_trailing_whitespace = false
-end_of_line = crlf

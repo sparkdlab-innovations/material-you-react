@@ -18,24 +18,29 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-import { MaterialTypefaceProperties, MaterialTypefaceType } from './MaterialTypeface.type';
+import {
+  MaterialTypefaceProperties,
+  MaterialTypefaceType,
+} from './MaterialTypeface.type';
 
 export default class MaterialTypeface {
   public readonly brand: Required<MaterialTypefaceProperties>;
 
   public readonly plain: Required<MaterialTypefaceProperties>;
 
-  public readonly materialSymbolsOutlined: Required<MaterialTypefaceProperties> = {
-    name: 'Material Symbols Outlined',
-    url: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
-    isVariable: true,
-  };
+  public readonly materialSymbolsOutlined: Required<MaterialTypefaceProperties> =
+    {
+      name: 'Material Symbols Outlined',
+      url: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+      isVariable: true,
+    };
 
-  public readonly materialSymbolsRounded: Required<MaterialTypefaceProperties> = {
-    name: 'Material Symbols Rounded',
-    url: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
-    isVariable: true,
-  };
+  public readonly materialSymbolsRounded: Required<MaterialTypefaceProperties> =
+    {
+      name: 'Material Symbols Rounded',
+      url: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+      isVariable: true,
+    };
 
   public readonly materialSymbolsSharp: Required<MaterialTypefaceProperties> = {
     name: 'Material Symbols Sharp',
@@ -77,7 +82,9 @@ export default class MaterialTypeface {
       ].map((item) => fetch(item.url)),
     );
 
-    const fontsCss = await Promise.all(fontResponses.map((item) => item.text()));
+    const fontsCss = await Promise.all(
+      fontResponses.map((item) => item.text()),
+    );
 
     return `
       ${fontsCss.join('\n\n')}
