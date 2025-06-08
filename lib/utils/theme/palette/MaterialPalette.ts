@@ -215,7 +215,7 @@ export default class MaterialPalette {
    * Specifies whether the scheme is in dark mode or not.
    * Defaults to true.
    */
-  constructor(palette: MaterialPaletteType, isDark: boolean = true) {
+  constructor(palette: MaterialPaletteType, isDark = true) {
     this.primary = palette.primary;
     this.primaryContainer = palette.primaryContainer;
     this.onPrimary = palette.onPrimary;

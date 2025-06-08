@@ -42,6 +42,8 @@ export default function CalendarHeader({
         <IconButton
           mode='standard'
           icon='edit'
+          // TODO: implement date editing functionality
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           onTap={() => {}}
         />
       </div>

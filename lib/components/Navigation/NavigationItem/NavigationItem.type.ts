@@ -18,10 +18,10 @@
  * program can be found at <https://github.com/rutajdash>
  */
 
-export type RouteType = {
+export interface RouteType {
   href: string;
   shortLabel: string;
   label: string;
   icon: string;
   activeRegex: string;
-};
+}

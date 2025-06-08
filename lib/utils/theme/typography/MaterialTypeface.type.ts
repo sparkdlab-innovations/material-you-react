@@ -21,17 +21,17 @@
 /**
  * Represents the type definition for a single typeface
  */
-export type MaterialTypefaceProperties = {
+export interface MaterialTypefaceProperties {
   name: string;
   url: string;
   isVariable?: boolean;
-};
+}
 
 /**
  * Represents the type definition for the Material Typeface constructor,
  * only used in-file for the same.
  */
-export type MaterialTypefaceType = {
+export interface MaterialTypefaceType {
   brand?: MaterialTypefaceProperties;
   plain?: MaterialTypefaceProperties;
-};
+}

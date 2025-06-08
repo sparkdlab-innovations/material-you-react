@@ -22,4 +22,3 @@ export { default as NavigationDrawer } from './NavigationDrawer';
 export { default as NavigationItem } from './NavigationItem';
 export type { RouteType } from './NavigationItem/NavigationItem.type';
 export { default as NavigationRail } from './NavigationRail';
-

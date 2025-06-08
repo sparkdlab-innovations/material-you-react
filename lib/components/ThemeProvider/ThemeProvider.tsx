@@ -31,12 +31,12 @@ import { MaterialPalette, MaterialTheme } from '../../utils/theme';
  * @property {string} [lightSourceColor] - The source color for the light palette. If not provided, a default color will be used. Alternatively, you can use the `theme` prop to customize the theme.
  * @property {string} [darkSourceColor] - The source color for the dark palette. If not provided, a default color will be used. Alternatively, you can use the `theme` prop to customize the theme.
  */
-type ThemeProviderProps = {
+interface ThemeProviderProps {
   children: React.ReactNode;
   theme?: MaterialTheme;
   lightSourceColor?: string;
   darkSourceColor?: string;
-};
+}
 
 /**
  * A component that provides a theme for the application.

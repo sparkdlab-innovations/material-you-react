@@ -22,7 +22,7 @@
  * Represents the type definition for the Material Palette constructor,
  * only used in-file for the same.
  */
-type MaterialPaletteType = {
+interface MaterialPaletteType {
   /**
    * The primary color.
    */
@@ -184,6 +184,6 @@ type MaterialPaletteType = {
    * The temporary overlay to make content less prominent.
    */
   scrim: string;
-};
+}
 
 export default MaterialPaletteType;

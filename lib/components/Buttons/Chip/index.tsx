@@ -39,6 +39,8 @@ type ChipArguments<T> = {
   isDisabled?: true;
 } & HtmlHTMLAttributes<HTMLDivElement>;
 
+// TODO: migrate to inkwell
+// TODO: remove ripple effect, no inkwell for display mode
 export default function Chip<
   T extends 'action' | 'toggle' | 'input' | 'display',
 >({

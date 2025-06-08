@@ -21,4 +21,3 @@
 export { default as InkWell } from './InkWell';
 export { default as Menu } from './Menu';
 export type { DialogCoordinates } from './Menu/Menu.types';
-

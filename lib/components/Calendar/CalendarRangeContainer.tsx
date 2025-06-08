@@ -81,6 +81,8 @@ export default function CalendarRangeContainer({
         <IconButton
           mode='standard'
           icon='arrow_drop_down'
+          // TODO: implement month/year selection
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           onTap={() => {}}
         />
       </div>

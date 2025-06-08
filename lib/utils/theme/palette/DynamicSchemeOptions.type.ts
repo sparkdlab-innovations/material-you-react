@@ -33,10 +33,10 @@
  * The Contrast Level is used to determine the contrast of the colors in the scheme.
  * The Contrast Level must be a number between -1 and 1. -1 represents minimum contrast, 0 represents standard (i.e. the design as spec'd), and 1 represents maximum contrast.
  */
-type DynamicSchemeOptions = {
+interface DynamicSchemeOptions {
   sourceColorHex: string;
   isDark: boolean;
   contrastLevel: number;
-};
+}
 
 export default DynamicSchemeOptions;

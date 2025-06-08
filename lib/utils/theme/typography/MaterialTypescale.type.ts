@@ -22,40 +22,40 @@
  * Represents the type definition for a single typescale variant,
  * only used in-file within the TypescaleVariants.
  */
-type TypescaleProperties = {
+interface TypescaleProperties {
   font?: 'var(--md-ref-typeface-brand)' | 'var(--md-ref-typeface-plain)';
   weight?: number;
   size?: string;
   tracking?: string;
   lineHeight?: string;
-};
+}
 
 /**
  * Represents the type definition for a single typescale,
  * only used in-file within the MaterialTypescaleType.
  */
-type TypescaleVariants = {
+interface TypescaleVariants {
   large?: TypescaleProperties;
   medium?: TypescaleProperties;
   small?: TypescaleProperties;
-};
+}
 
 /**
  * Represents the type definition for the Material Typescale constructor,
  * only used in-file for the same.
  */
-export type MaterialTypescaleType = {
+export interface MaterialTypescaleType {
   display?: TypescaleVariants;
   headline?: TypescaleVariants;
   title?: TypescaleVariants;
   body?: TypescaleVariants;
   label?: TypescaleVariants;
-};
+}
 
 /**
  * The type definition for Material Typography class' typescale property.
  */
-export type MaterialTypescale = {
+export interface MaterialTypescale {
   displayLargeFont:
     | 'var(--md-ref-typeface-brand)'
     | 'var(--md-ref-typeface-plain)';
@@ -175,4 +175,4 @@ export type MaterialTypescale = {
   labelSmallSize: string;
   labelSmallTracking: string;
   labelSmallLineHeight: string;
-};
+}
