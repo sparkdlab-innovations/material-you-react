@@ -6,7 +6,6 @@
   "printWidth": 80,
   "arrowParens": "always",
   "bracketSameLine": false,
-  "jsxBracketSameLine": false,
   "quoteProps": "as-needed",
   "endOfLine": "lf",
   "proseWrap": "preserve",
